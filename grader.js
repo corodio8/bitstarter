@@ -69,7 +69,9 @@ if(require.main == module) {
     .option('--u, --url <url>', 'link to URL, supercedes -f', 
     .parse(process.argv);
   if(program.url) {
-  rest.get(program.url).on('complete', (var check Json = checkHtmlFirl(result)), program.checks);
+    rest.get(program.url).on('complete', function(result, response) {
+    var check Json = checkHtmlFile(result)), program.checks);
+    }
   } else {
   var checkJson = checkHtmlFile(program.file, program.checks);
   }
